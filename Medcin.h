@@ -1,6 +1,7 @@
 #include <string>
 #include <ctime>
 #include <iostream>
+#include "date.h"
 
 
 using namespace std ;
@@ -11,12 +12,16 @@ private:
     string   id_Medcin ;
     string nom_Med, prenom_Med , address_Med , specialite_Med ;
     double  salaire_Med ;
-    string date_affectation_Med;                                       // should add the date class
+    date date_affectation_Med;                                       // should add the date class
 
 public:
-   Medcin(){
-       cout<<" constructor - done ";
-   };
+   Medcin(){};
+   void reset_Medcin(){
+       id_Medcin=" ";
+       salaire_Med=0;
+       nom_Med = prenom_Med = address_Med = specialite_Med= " ";
+       date_affectation_Med.resetdate();
+   }
 
    Medcin(Medcin &Med){
        id_Medcin = Med.id_Medcin;
@@ -35,7 +40,7 @@ public:
        cout<<"prenom :"<< prenom_Med<< endl;
        cout<<"adress :"<<address_Med<<endl ;
        cout<<"specialite:"<<specialite_Med<<endl;
-       cout<<"date d'affectaion"<< date_affectation_Med<<endl;
+       date_affectation_Med.resetdate();
    }
 
    ostream & saisir_Med(){
@@ -45,7 +50,7 @@ public:
        cout<<"prenom:"; cin>>prenom_Med;
        cout<<"adress:"; cin>>address_Med;
        cout<<"specialite :";cin>>specialite_Med;
-       cout<<"date d'affectation"; cin>>date_affectation_Med;
+       cout<<"date d'affectation"; date_affectation_Med.Ajouter_date();
        cpt_Med++;
        cout<<"les donnes sont bien enregistrer";
    }

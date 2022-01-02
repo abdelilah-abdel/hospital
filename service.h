@@ -17,12 +17,15 @@ private:
     string secretaire ;
     int    nbr_infermier = cpt_Inf;  // initialisation par le nombre d'infermiers prenants en consediration l'insertion
     infirmier *Tabinfermiers ;  // tableau de Medcin
-    string date_lancement_S ; // date lancement de service
+    date date_lancement_S ; // date lancement de service
 
 public:
 
     service(){
-         Tabinfermiers = new string[20]; // initialisation de tableau et reservation de 20 position dans la memoire ;
+        code_service=0;
+        nom_service=" ";
+        Med_chef.reset_Medcin();
+        Tabinfermiers = new string[20]; // initialisation de tableau et reservation de 20 position dans la memoire ;
          // not sure a verifier
      };
     service(service& S ){
@@ -34,7 +37,7 @@ public:
          for(int i ; i<nbr_infermier; i++){
              Tabinfermiers[i]=S.Tabinfermiers[i];
          }
-         date_lancement_S = S.date_lancement_S;
+         date_lancement_S = S.date_lancement_S;  // constructeur de date par copie
         cout<<"constructeur de copie est bien effectuer";
      };
 
@@ -59,7 +62,7 @@ public:
         else
         return false ;
     }
-    bool verifier_nbr_inf(){
+    bool verifier_nbr_inf() const{
         if (nbr_infermier>20){
             return false ;
         } else return true ;
@@ -78,14 +81,51 @@ void  ajouter_inf(){
             break;
         }
 
-         else
+         else if(!verifier_existance_Inf(id_temporaire))
          { nbr_infermier ++ ;
              Ajouter_infermier(); // fix this shit
            }
     }
+//3.10 ----------------------------1
+void inf_5exp() {
+    for (int i; i < nbr_infermier ; i++) {
 
+       if (Tabinfermiers[i].getDA_Inf().comparer_date()<-5)
+           cout<<Tabinfermiers[i].Afficher_infermier();
+    }
+        cout<<"aucun infirmier qui a experience < 5ans"<< endl ;
+}
+// 2
+    void inf_5exp(infirmier *tabinf) {
+        for (int i; i < nbr_infermier ; i++) {
 
+            if (tabinf[i].getDA_Inf().comparer_date()<-5)
+                cout<<tabinf[i].Afficher_infermier();
+        }
+        cout<<"aucun infirmier qui a experience < 5ans"<< endl ;
+    }
+//----------------------------------1
 
+int  Age_service(service *tabs, string idservice){
+       for(int i ;i<nbr_infermier; i++) {
+           if (tabs[i].code_service = idservice) {
+               int A = tabs[i].date_lancement_S.comparer_date();
+               int B = tabs[i].date_lancement_S.comparer_mois();
+               int C = tabs[i].date_lancement_S.comparer_jour();
+               break;
+           }
+       }
+    cout<<"Age de service :"<<A<<"an"<<B<<"mois"<<C<<"jours"<< endl;
+    return  A  ;
+       }
+
+bool  Supprimer_inf_service(string codeinf){
+    for (int i = 0; i < nbr_infermier; i++) {
+       if (Tabinfermiers[i].getId_inf() == codeinf )
+    }
 
     }
-}
+
+
+
+};
