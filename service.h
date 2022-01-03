@@ -48,7 +48,6 @@ public:
             return true ;
             break;
         }
-        else
             return false ;
     }
  // surcharge de methode
@@ -59,7 +58,7 @@ public:
             return true ;
             break;
         }
-        else
+
         return false ;
     }
     bool verifier_nbr_inf() const{
@@ -119,12 +118,57 @@ int  Age_service(service *tabs, string idservice){
     return  A  ;
        }
 
-bool  Supprimer_inf_service(string codeinf){
-    for (int i = 0; i < nbr_infermier; i++) {
-       if (Tabinfermiers[i].getId_inf() == codeinf )
-    }
+bool Supprimer_inf_service(){
 
     }
+
+
+bool  Supprimer_inf_service(string codeinf){
+        if(verifier_existance_Inf(codeinf))
+        {
+            // instructions de suppressions
+            for (int i = 0; i < nbr_infermier; i++)
+            {  if (Tabinfermiers[i].getId_inf() == codeinf )
+                {
+                for (int j = i; j < nbr_infermier-1; j++)
+                {
+                    Tabinfermiers[j]=Tabinfermiers[j+1];
+                  }
+                }
+
+            }
+            cout<<"les donnees bien enregistrer !";
+            return true;
+        }
+        else
+        {
+            cout<<"erreur , verifier le id d'infermier et verifier une autre fois";
+            return false;
+        }
+    }
+
+    void Afficher_service(){
+        cout<<"-------------------------SERVICE :"<<nom_service<<":" << code_service<<"---------------------";
+        cout<<"date de lancement de service"<<date_lancement_S.Afficher_date();
+        cout<<"Medcin chef de service: [ "<<Med_chef.getnom_Med() <<"-id:"<<Med_chef.getId_Med();
+        cout<<" secretaire de service : "<< secretaire;
+        cout<<"nombre d'ifirmiers"<<nbr_infermier;
+        cout<<"-----Liste d'infermiers -----------" ;
+        cout<<"id \t nom \t prenom \t adress \t date d'affectation \t salaire \t type de contrat"<<endl;
+        for (int i = 0; i < nbr_infermier; i++)
+        {
+         cout<<Tabinfermiers[i].getId_inf();
+         cout<<Tabinfermiers[i].getNom_Inf();
+         cout<<Tabinfermiers[i].getPrenom_Inf();
+         cout<<Tabinfermiers[i].getAdress_Inf();
+         Tabinfermiers[i].getDateaff_Inf().Afficher_date();
+         cout<<Tabinfermiers[i].getSalaire_Inf();
+         cout<<Tabinfermiers[i].getTypecontrat_Inf();
+        }
+
+    }
+
+
 
 
 

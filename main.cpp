@@ -1,8 +1,12 @@
 #include <iostream>
-#include "Medcin.h"
+#include "service.h"
 
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    std::cout << "BONJOUR, World!" << std::endl;
+
+    service *Tabservices = new string[20]; // not sure
+     Tabservices->ajouter_inf();
+
     return 0;
 }

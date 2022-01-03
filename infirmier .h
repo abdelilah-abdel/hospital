@@ -59,7 +59,11 @@ public:
  //les methodes get
     string getId_inf() { return  id_infirmier; }
     string getNom_Inf(){ return  nom_infirmier;}
-    date getDA_Inf() { return  date_affectation_Inf;}
+    string getPrenom_Inf(){  return  prenom_infirmier;}
+    date   getDateaff_Inf() { return  date_affectation_Inf;}
+    string getTypecontrat_Inf(){ return  type_contrat;}
+    double getSalaire_Inf(){ return salaire_infirmier; }
+    string getAdress_Inf(){return adress_infirmier;}
 
     // methode de comparaison :
          // avec un seul parametre
