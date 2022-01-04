@@ -6,6 +6,7 @@
 #include "date.h"
 
 
+
 using  namespace std;
 
 
@@ -22,10 +23,10 @@ private:
 public:
 
     service(){
-        code_service=0;
+        code_service=" ";
         nom_service=" ";
         Med_chef.reset_Medcin();
-        Tabinfermiers = new string[20]; // initialisation de tableau et reservation de 20 position dans la memoire ;
+        Tabinfermiers = new infirmier[20]; // initialisation de tableau et reservation de 20 position dans la memoire  de type infermier ;
          // not sure a verifier
      };
     service(service& S ){
@@ -72,17 +73,17 @@ void  ajouter_inf(){
         cout<<"entrer l'id d'infermier : "; cin>> id_temporaire;
         if (!verifier_nbr_inf())
         {   cout<<"la liste des infermiers est sature";
-            break;
+
         }
 
         if (verifier_existance_Inf(id_temporaire)) { // l'id deja existe
             cout << "erreur: l'infirmier " << id_temporaire << "deja existe";
-            break;
+
         }
 
          else if(!verifier_existance_Inf(id_temporaire))
          { nbr_infermier ++ ;
-             Ajouter_infermier(); // fix this shit
+             Tabinfermiers[nbr_infermier].Ajouter_infermier();
            }
     }
 //3.10 ----------------------------1
@@ -90,7 +91,7 @@ void inf_5exp() {
     for (int i; i < nbr_infermier ; i++) {
 
        if (Tabinfermiers[i].getDA_Inf().comparer_date()<-5)
-           cout<<Tabinfermiers[i].Afficher_infermier();
+           Tabinfermiers[i].Afficher_infermier();
     }
         cout<<"aucun infirmier qui a experience < 5ans"<< endl ;
 }
@@ -99,28 +100,30 @@ void inf_5exp() {
         for (int i; i < nbr_infermier ; i++) {
 
             if (tabinf[i].getDA_Inf().comparer_date()<-5)
-                cout<<tabinf[i].Afficher_infermier();
+                tabinf[i].Afficher_infermier();
         }
         cout<<"aucun infirmier qui a experience < 5ans"<< endl ;
     }
 //----------------------------------1
 
 int  Age_service(service *tabs, string idservice){
-       for(int i ;i<nbr_infermier; i++) {
-           if (tabs[i].code_service = idservice) {
-               int A = tabs[i].date_lancement_S.comparer_date();
-               int B = tabs[i].date_lancement_S.comparer_mois();
-               int C = tabs[i].date_lancement_S.comparer_jour();
+      int position , A, B,C ;
+       for(int i;i<nbr_infermier; i++) {
+           if (tabs[i].code_service == idservice) {
+               position=i;  // trouver la position(indice) de service dans un tableau service
                break;
            }
+                A = tabs[position].date_lancement_S.comparer_date();
+                B = tabs[position].date_lancement_S.comparer_mois();
+                C = tabs[position].date_lancement_S.comparer_jour();
        }
     cout<<"Age de service :"<<A<<"an"<<B<<"mois"<<C<<"jours"<< endl;
     return  A  ;
        }
 
-bool Supprimer_inf_service(){
+//bool Supprimer_inf_service(){
 
-    }
+ //   }
 
 
 bool  Supprimer_inf_service(string codeinf){
@@ -146,10 +149,21 @@ bool  Supprimer_inf_service(string codeinf){
             return false;
         }
     }
+    void Modier_nom_service(){
+        std::cout << "entrer le nouveau nom de service" << '\n';
+        std::cin >> nom_service;
+        std::cout << "le changement est bien effectuer" << '\n'<<"nouveau nom de service est :"<< nom_service<<std::endl;
+    }
+    void Modier_nom_service(service &S){
+        std::cout << "entrer le nouveau nom pour service :" <<S.nom_service<<'\n';
+        std::cin >> S.nom_service;
+        std::cout << "le changement est bien effectuer" << '\n'<<"nouveau nom de service est :"<< S.nom_service<<std::endl;
+    }
+
 
     void Afficher_service(){
         cout<<"-------------------------SERVICE :"<<nom_service<<":" << code_service<<"---------------------";
-        cout<<"date de lancement de service"<<date_lancement_S.Afficher_date();
+        date_lancement_S.Afficher_date();
         cout<<"Medcin chef de service: [ "<<Med_chef.getnom_Med() <<"-id:"<<Med_chef.getId_Med();
         cout<<" secretaire de service : "<< secretaire;
         cout<<"nombre d'ifirmiers"<<nbr_infermier;
@@ -161,7 +175,7 @@ bool  Supprimer_inf_service(string codeinf){
          cout<<Tabinfermiers[i].getNom_Inf();
          cout<<Tabinfermiers[i].getPrenom_Inf();
          cout<<Tabinfermiers[i].getAdress_Inf();
-         Tabinfermiers[i].getDateaff_Inf().Afficher_date();
+         Tabinfermiers[i].getDA_Inf().Afficher_date();
          cout<<Tabinfermiers[i].getSalaire_Inf();
          cout<<Tabinfermiers[i].getTypecontrat_Inf();
         }

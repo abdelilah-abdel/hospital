@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstring>
 #include <string>
 #include "date.h"
 
@@ -16,7 +15,7 @@ private:
 public:
     // constructeur par default
     infirmier(){
-        id_infirmier=0;
+        id_infirmier=" ";
         nom_infirmier=" ";
         prenom_infirmier=" ";
         adress_infirmier= " ";
@@ -32,19 +31,19 @@ public:
         adress_infirmier=I.id_infirmier;
         salaire_infirmier=I.salaire_infirmier;
         type_contrat= I.type_contrat;
-        date_affectation_Inf = I.date_affectation_Inf(); // not sure if it will work
+       // date_affectation_Inf = I.date_affectation_Inf(); // not sure if it will work // should add overloading operator
         cout<<"the data is copied";
     };
 
     void Afficher_infermier (){
 
         cout<<"id :"<<id_infirmier;
-        cout<<"nom :"<<cin>>nom_infirmier ;
+        cout<<"nom :";cin>>nom_infirmier ;
         cout<<"prenom:"<<prenom_infirmier;
         cout<<"adress"<<adress_infirmier;
         cout<<"salaire_infirmier"<<salaire_infirmier;
         cout<<"type contrat :"<<type_contrat;
-        cout<<"date d'affectation"<<date_affectation_Inf; // not sure if it will work
+        date_affectation_Inf.Afficher_date(); // not sure if it will work
     }
     void Ajouter_infermier (){
         cpt_Inf ++ ;
@@ -54,13 +53,13 @@ public:
         cout<<"adress";  cin>>adress_infirmier;
         cout<<"salaire_infirmier";cin>>salaire_infirmier;
         cout<<"type contrat :"; cin>>type_contrat;
-        cout<<"date d'affectation"; cin>>date_affectation_Inf; // not sure if it will work
+        cout<<"date d'affectation"; date_affectation_Inf.Ajouter_date();
     }
  //les methodes get
     string getId_inf() { return  id_infirmier; }
     string getNom_Inf(){ return  nom_infirmier;}
     string getPrenom_Inf(){  return  prenom_infirmier;}
-    date   getDateaff_Inf() { return  date_affectation_Inf;}
+    date   getDA_Inf() { return  date_affectation_Inf;}
     string getTypecontrat_Inf(){ return  type_contrat;}
     double getSalaire_Inf(){ return salaire_infirmier; }
     string getAdress_Inf(){return adress_infirmier;}

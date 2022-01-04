@@ -16,6 +16,7 @@ private:
 
 public:
    Medcin(){};
+
    void reset_Medcin(){
        id_Medcin=" ";
        salaire_Med=0;
@@ -43,7 +44,7 @@ public:
        date_affectation_Med.resetdate();
    }
 
-   ostream & saisir_Med(){
+   void saisir_Med(){
        system("clear");
        cout<<"id :";cin>>id_Medcin;
        cout<<"nom :"; cin>>nom_Med;

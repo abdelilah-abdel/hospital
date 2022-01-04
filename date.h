@@ -1,29 +1,35 @@
 #include <iostream>
+#include <string>
 #include <time.h>
 
 using namespace std;
 
 class date {
+
 private:
-    int jr ;
-    int ms ;
-    int an ;
-    int hr ; // en considere pas les minutes et les secounds
+    int jr;
+    int ms;
+    int an;
+    int hr;
     int min;
     int sec;
-    time_t now = time(NULL);       // pour stocker le temps de systm de type time_ t --> nbr de sec   // affectation le temps de  system a la variable time ;
-    struct  tm nowlocal = *localtime(&now); // pour transformer la variable now(nbrdesec) a une variable type tm qui est strecture est differencies les chiifre entre min sec month year days ....etc
 public:
-    date(){
+    time_t now = time(
+            NULL);                   // pour stocker le temps de systm de type time_ t --> nbr de sec   // affectation le temps de  system a la variable time ;
+    struct tm nowlocal = *localtime(
+            &now);   // pour transformer la variable now(nbrdesec) a une variable type tm qui est strecture est differencies les chiifre entre min sec month year days ....etc
+public:
+
+    date() {
         jr = 01;
-        ms =01 ;
+        ms = 01;
         an = 1900;
-       heure_Automatique();
+        heure_Automatique();
     }
 
-    void Afficher_date(){
-        cout<<"date [jj/mm/aaaa/h] :"<< jr<<"/"<<ms<<"/"<<an<<"/"<<endl;
-        cout<<"Temps("<<hr<<":"<<min<<":"<<sec<<endl;
+    void Afficher_date() {
+        cout << "date [jj/mm/aaaa/h] :" << jr << "/" << ms << "/" << an << "/" << endl;
+        cout << "Temps(" << hr << ":" << min << ":" << sec << endl;
     }
 
     void  resetdate(){
