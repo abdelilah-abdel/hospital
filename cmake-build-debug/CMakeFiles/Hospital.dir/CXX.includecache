@@ -1,0 +1,52 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/Medcin.h
+string
+-
+ctime
+-
+iostream
+-
+date.h
+C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/date.h
+
+C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/date.h
+iostream
+-
+string
+-
+time.h
+-
+
+C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/infirmier .h
+iostream
+-
+string
+-
+date.h
+C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/date.h
+
+C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/main.cpp
+service.h
+C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/service.h
+
+C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/service.h
+iostream
+-
+string
+-
+cstring
+-
+Medcin.h
+C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/Medcin.h
+infirmier .h
+C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/infirmier .h
+date.h
+C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/date.h
+
