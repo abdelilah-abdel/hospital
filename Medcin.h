@@ -15,6 +15,7 @@ private:
     date date_affectation_Med;                                       // should add the date class
 
 public:
+
    Medcin(){};
 
    void reset_Medcin(){

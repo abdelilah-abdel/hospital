@@ -33,6 +33,7 @@ public:
         type_contrat= I.type_contrat;
        // date_affectation_Inf = I.date_affectation_Inf(); // not sure if it will work // should add overloading operator
         cout<<"the data is copied";
+
     };
 
     void Afficher_infermier (){

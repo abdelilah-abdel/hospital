@@ -13,6 +13,7 @@ private:
     int hr;
     int min;
     int sec;
+
 public:
     time_t now = time(
             NULL);                   // pour stocker le temps de systm de type time_ t --> nbr de sec   // affectation le temps de  system a la variable time ;
