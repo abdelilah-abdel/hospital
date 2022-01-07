@@ -1,6 +1,13 @@
-#include <iostream>
+#ifndef SERVICE_H_INFERMIER_H
+#define SERVICE_H_INFERMIER_H
+
+
+
+
 #include <string>
+#include <iostream>
 #include "date.h"
+
 
 int cpt_Inf=0 ;
 class  infirmier{
@@ -31,15 +38,14 @@ public:
         adress_infirmier=I.id_infirmier;
         salaire_infirmier=I.salaire_infirmier;
         type_contrat= I.type_contrat;
-       // date_affectation_Inf = I.date_affectation_Inf(); // not sure if it will work // should add overloading operator
+        date_affectation_Inf=I.date_affectation_Inf; // not sure if it will work // should add overloading operator
         cout<<"the data is copied";
-
     };
 
     void Afficher_infermier (){
 
         cout<<"id :"<<id_infirmier;
-        cout<<"nom :";cin>>nom_infirmier ;
+        cout<<"nom :"<<nom_infirmier ;
         cout<<"prenom:"<<prenom_infirmier;
         cout<<"adress"<<adress_infirmier;
         cout<<"salaire_infirmier"<<salaire_infirmier;
@@ -67,14 +73,14 @@ public:
 
     // methode de comparaison :
          // avec un seul parametre
-    bool  comparer_Inf(infirmier &A){
-        if(A.id_infirmier == id_infirmier)
+    bool  comparer_Inf(string id){
+        if(id_infirmier == id)
             return true;
         return false ;
     }
         // avec deux parametres : surchage
-    static bool  comparer_Inf(infirmier &A , infirmier& B){
-        if (A.id_infirmier == B.id_infirmier)
+ bool  comparer_Inf(infirmier& B){
+        if (id_infirmier == B.id_infirmier)
             return true;
         return false;
     }
@@ -82,4 +88,15 @@ public:
     // we can add operator overloadings for menu and stuff like that ;
 
 
+    ostream& operator << (ostream  &output /*,  infirmier &M */ ){
+        output<<"id :"<<id_infirmier;
+        output<<"nom :"<<nom_infirmier ;
+        output<<"prenom:"<<prenom_infirmier;
+        output<<"adress"<<adress_infirmier;
+        output<<"salaire_infirmier"<<salaire_infirmier;
+        output<<"type contrat :"<<type_contrat;
+        return  output;
+    }
+
 };
+#endif

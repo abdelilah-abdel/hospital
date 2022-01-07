@@ -1,6 +1,11 @@
+#ifndef SERVICE_H_DATE_H
+#define SERVICE_H_DATE_H
+
+
+
 #include <iostream>
 #include <string>
-#include <time.h>
+#include <ctime>
 
 using namespace std;
 
@@ -15,8 +20,7 @@ private:
     int sec;
 
 public:
-    time_t now = time(
-            NULL);                   // pour stocker le temps de systm de type time_ t --> nbr de sec   // affectation le temps de  system a la variable time ;
+    time_t now = time(NULL);                   // pour stocker le temps de systm de type time_ t --> nbr de sec   // affectation le temps de  system a la variable time ;
     struct tm nowlocal = *localtime(
             &now);   // pour transformer la variable now(nbrdesec) a une variable type tm qui est strecture est differencies les chiifre entre min sec month year days ....etc
 public:
@@ -25,10 +29,12 @@ public:
         jr = 01;
         ms = 01;
         an = 1900;
-        heure_Automatique();
+        hr=nowlocal.tm_hour;
+        min=nowlocal.tm_min;
+        sec=nowlocal.tm_sec;
     }
 
-    void Afficher_date() {
+    void Afficher_date() const {
         cout << "date [jj/mm/aaaa/h] :" << jr << "/" << ms << "/" << an << "/" << endl;
         cout << "Temps(" << hr << ":" << min << ":" << sec << endl;
     }
@@ -48,9 +54,12 @@ public:
 
     void Ajouter_heure(){
         int choix;
-        I:    cout<<"1 - Automatic[temps de system]"<<endl;
+        I:
+        cout<<"1 - Automatic[temps de system]"<<endl;
         cout<<"2- Manuelle:"<< endl;
-        cout<<"3- choisisez entre les deux"; cin>>choix;
+        cout<<"3- choisisez entre les deux :";
+        cin>>choix;
+
         if(choix == 1){
             heure_Automatique();
         }
@@ -97,17 +106,32 @@ public:
         cout<<"Time :"<<nowlocal.tm_hour<<":"<<nowlocal.tm_min<<":"<<nowlocal.tm_sec<<endl;
     }
 
-    bool heure_Automatique(){
-
-        hr=nowlocal.tm_hour;
+    void heure_Automatique(){
+        while (true){    hr=nowlocal.tm_hour;
         min=nowlocal.tm_min;
         sec=nowlocal.tm_sec;
-        cout<<"l'heure est effectuer"<<endl;
-        return true;
+            break;
+        }
+
     }
     bool heure_Manuelle(){
         cout<<"entrer l'heure[h:m:s]";cin>>hr>>ms>>sec;
         cout<<"l'heure est effectuer"<<endl;
         return true;
     }
+
+
+
+    date operator = (date date1){
+        date d;
+        d.jr=date1.jr;
+        d.ms=date1.ms;
+        d.an=date1.an;
+        d.hr=date1.hr;
+        d.min=date1.min;
+        d.sec=date1.sec;
+        return d;
+    }
 };
+
+#endif

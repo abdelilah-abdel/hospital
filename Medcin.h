@@ -1,18 +1,22 @@
+#ifndef SERVICE_H_Medcin_H
+#define SERVICE_H_Medcin_H
+
 #include <string>
-#include <ctime>
 #include <iostream>
 #include "date.h"
 
 
 using namespace std ;
 
-int cpt_Med =0;
+int cpt_Med =0;  // variable globale
+
+
 class Medcin{
 private:
     string   id_Medcin ;
-    string nom_Med, prenom_Med , address_Med , specialite_Med ;
-    double  salaire_Med ;
-    date date_affectation_Med;                                       // should add the date class
+    string   nom_Med, prenom_Med , address_Med , specialite_Med ;
+    double   salaire_Med ;
+    date     date_affectation_Med;                                       // should add the date class
 
 public:
 
@@ -45,7 +49,7 @@ public:
        date_affectation_Med.resetdate();
    }
 
-   void saisir_Med(){
+   void saisir_Med() {
        system("clear");
        cout<<"id :";cin>>id_Medcin;
        cout<<"nom :"; cin>>nom_Med;
@@ -70,19 +74,22 @@ public:
        return  specialite_Med;
    }
 
-   // la surcharge des operateurs:
-  /*
-   ostream& operator<< (ostream  &output , const Medcin &M) {
-       output<<"MEDCIN Numero : " << cpt_Med<<endl;
-       output<<"id :"<< M.id_Medcin << endl ;
-       output<<"nom:"<<M.nom_Med << endl;
-       output<<"prenom :"<< M.prenom_Med<< endl;
-       output<<"adress :"<<M.address_Med<<endl ;
-       output<<"specialite:"<<M.specialite_Med<<endl;
-       output<<"date d'affectaion"<< M.date_affectation<<endl;
-       return  output;
-   }
-*/
+    friend ostream& operator << (ostream  &output , const Medcin &M);
 
 
 };
+// la surcharge des operateurs:
+
+ostream& operator << (ostream  &output , const Medcin &M) {
+    output<<"MEDCIN Numero : " << cpt_Med<<endl;
+    output<<"id :"<< M.id_Medcin << endl ;
+    output<<"nom:"<<M.nom_Med << endl;
+    output<<"prenom :"<< M.prenom_Med<< endl;
+    output<<"adress :"<<M.address_Med<<endl ;
+    output<<"specialite:"<<M.specialite_Med<<endl;
+    M.date_affectation_Med.Afficher_date();
+    return  output;
+}
+
+
+#endif
