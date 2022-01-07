@@ -24,7 +24,6 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/."/>
 					<Add directory="c:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../include/c++/9.2.0"/>
 					<Add directory="c:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../include/c++/9.2.0/x86_64-w64-mingw32"/>
 					<Add directory="c:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../include/c++/9.2.0/backward"/>
@@ -46,7 +45,6 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/."/>
 					<Add directory="c:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../include/c++/9.2.0"/>
 					<Add directory="c:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../include/c++/9.2.0/x86_64-w64-mingw32"/>
 					<Add directory="c:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../include/c++/9.2.0/backward"/>
@@ -82,22 +80,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/Medcin.h">
-			<Option target="Hospital"/>
-		</Unit>
-		<Unit filename="C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/date.h">
-			<Option target="Hospital"/>
-		</Unit>
-		<Unit filename="C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/heure.h">
-			<Option target="Hospital"/>
-		</Unit>
-		<Unit filename="C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/infirmier .h">
-			<Option target="Hospital"/>
-		</Unit>
 		<Unit filename="C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/main.cpp">
-			<Option target="Hospital"/>
-		</Unit>
-		<Unit filename="C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/service.h">
 			<Option target="Hospital"/>
 		</Unit>
 		<Unit filename="C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/CMakeLists.txt">

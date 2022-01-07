@@ -76,7 +76,6 @@ include CMakeFiles/Hospital.dir/progress.make
 include CMakeFiles/Hospital.dir/flags.make
 
 CMakeFiles/Hospital.dir/main.cpp.obj: CMakeFiles/Hospital.dir/flags.make
-CMakeFiles/Hospital.dir/main.cpp.obj: CMakeFiles/Hospital.dir/includes_CXX.rsp
 CMakeFiles/Hospital.dir/main.cpp.obj: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\abdel\Desktop\my reposotories\c++ projects\untitled\Hospital\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Hospital.dir/main.cpp.obj"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Hospital.dir\main.cpp.obj -c "C:\Users\abdel\Desktop\my reposotories\c++ projects\untitled\Hospital\main.cpp"

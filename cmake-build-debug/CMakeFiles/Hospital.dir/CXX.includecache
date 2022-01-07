@@ -9,8 +9,6 @@
 C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/Medcin.h
 string
 -
-ctime
--
 iostream
 -
 date.h
@@ -21,13 +19,13 @@ iostream
 -
 string
 -
-time.h
+ctime
 -
 
 C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/infirmier .h
-iostream
--
 string
+-
+iostream
 -
 date.h
 C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/date.h
@@ -35,18 +33,18 @@ C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/date.h
 C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/main.cpp
 service.h
 C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/service.h
+windows.h
+-
+windows.h
+-
 
 C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/service.h
-iostream
--
 string
 -
-cstring
+iostream
 -
 Medcin.h
 C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/Medcin.h
 infirmier .h
 C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/infirmier .h
-date.h
-C:/Users/abdel/Desktop/my reposotories/c++ projects/untitled/Hospital/date.h
 
