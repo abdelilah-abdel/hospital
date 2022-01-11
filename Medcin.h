@@ -57,7 +57,7 @@ public:
        cout<<"adress:"; cin>>address_Med;
        cout<<"specialite :";cin>>specialite_Med;
        cout<<"date d'affectation"; date_affectation_Med.Ajouter_date();
-       cpt_Med++;
+         cpt_Med++;
        cout<<"les donnes sont bien enregistrer";
    }
 
@@ -74,12 +74,12 @@ public:
        return  specialite_Med;
    }
 
-    friend ostream& operator << (ostream  &output , const Medcin &M);
+  //  friend ostream& operator << (ostream  &output , const Medcin &M);
 
 
 };
 // la surcharge des operateurs:
-
+/*
 ostream& operator << (ostream  &output , const Medcin &M) {
     output<<"MEDCIN Numero : " << cpt_Med<<endl;
     output<<"id :"<< M.id_Medcin << endl ;
@@ -90,6 +90,6 @@ ostream& operator << (ostream  &output , const Medcin &M) {
     M.date_affectation_Med.Afficher_date();
     return  output;
 }
-
+*/
 
 #endif

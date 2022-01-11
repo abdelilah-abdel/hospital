@@ -35,8 +35,8 @@ public:
     }
 
     void Afficher_date() const {
-        cout << "date [jj/mm/aaaa/h] :" << jr << "/" << ms << "/" << an << "/" << endl;
-        cout << "Temps(" << hr << ":" << min << ":" << sec << endl;
+        cout << "La date :" << jr << "/" << ms << "/" << an << "/" << endl;
+        cout << "Le Temps(" << hr << ":" << min << ":" << sec << endl;
     }
 
     void  resetdate(){
@@ -45,19 +45,31 @@ public:
         an = 1900;
         heure_Automatique();
     }
+    bool  controle_date(){
+        if(jr<0 || jr>31 || ms<1 || ms>12 || an<1900 || an>2021)
+            return false;
+        return true;
+    }
+    bool  controle_heure(){
+        if(hr<0 || hr>24 || min<00 ||min>59 || sec<<00 ||sec>59 )
+            return false;
+        return true;
+    }
 
     void Ajouter_date(){
+        do {
         cout<<"entrer la date [JJ MM AAAA ] :"; cin>>jr>>ms>>an;
-        cout<<"les donnes bien enregistrer"<<endl<<endl<<endl ;
+        } while (!controle_date());
+        cout<<"tapez [1 - 2] pour entrer l'heure :"<<endl;
         Ajouter_heure();
+        cout<<"les donnes bien enregistrer"<<endl;
+
     }
 
     void Ajouter_heure(){
         int choix;
-        I:
-        cout<<"1 - Automatic[temps de system]"<<endl;
-        cout<<"2- Manuelle:"<< endl;
-        cout<<"3- choisisez entre les deux :";
+   I:   cout<<"1- Automatiquement [temps de system]"<<endl;
+        cout<<"2- Manuellement :"<< endl;
         cin>>choix;
 
         if(choix == 1){
@@ -71,67 +83,65 @@ public:
         }
     }
 
-    int getjour(){ return  jr;}
-    int getmois(){ return  ms;}
-    int getannee(){return  an;}
-
-    int comparer_date(date &d){
-        //   Afficher_date();
-        cout<<"diffirence de jours :"<<   nowlocal.tm_mday-d.jr<< endl;
-        cout<<"diffirence de mois :"<<   (nowlocal.tm_mon+1)-d.ms<<endl;
-        cout<<"diffirence d'annees :"<<   (nowlocal.tm_year+1900)-d.an<<endl ;
-        cout<<"difference d'heurs " <<   nowlocal.tm_hour- d.hr<<endl ;
-        return   d.an - nowlocal.tm_year;
+    int comparer_date() {  // pour afficher l'age d'objet courant
+        return (nowlocal.tm_year + 1900) - an;
     }
-
-    int comparer_date(){
-        //   Afficher_date();
-        cout<<"diffirence de jours :"<<   nowlocal.tm_mday-jr<< endl;
-        cout<<"diffirence de mois :"<<   (nowlocal.tm_mon+1)-ms<<endl;
-        cout<<"diffirence d'annees :"<<   (nowlocal.tm_year+1900)-an<<endl ;
-        cout<<"difference d'heurs " <<   nowlocal.tm_hour- hr<<endl ;
-
-        return    (nowlocal.tm_year+1900)-an;
-    }
-    int comparer_mois(){
+    int comparer_mois(){  // retourne difference de mois
         return (nowlocal.tm_mon+1)-ms ;
     }
-    int comparer_jour(){
+    int comparer_jour(){   // retourne difference de jours
         return nowlocal.tm_mday-jr;
     }
 
-    void date_Aujourdhui(){
+
+    // optional ;
+    int comparer_date(date &d){  // cette methode return l'age entre deux date en annees
+        cout<<"diffirence de jours :"<<   nowlocal.tm_mday-d.jr<< endl;
+        cout<<"diffirence de mois :"<<   (nowlocal.tm_mon+1)-d.ms<<endl;
+        cout<<"diffirence d'annees :"<<   (nowlocal.tm_year+1900)-d.an<<endl;
+        cout<<"difference d'heurs " <<   nowlocal.tm_hour- d.hr<<endl ;
+         return   d.an - nowlocal.tm_year;
+    }
+
+
+
+
+    void date_Aujourdhui() const{
         // cout<<now<<endl;      // show the system time in sec : 1641142455
-        cout<<"date d'Ajourd'hui :"<<nowlocal.tm_mday<<"/"<<nowlocal.tm_mon+1<<"/"<<nowlocal.tm_year+1900<<endl;
-        cout<<"Time :"<<nowlocal.tm_hour<<":"<<nowlocal.tm_min<<":"<<nowlocal.tm_sec<<endl;
+        cout<<"\xB2\xB2\xB2 date d'Ajourd'hui : "<<nowlocal.tm_mday<<"/"<<nowlocal.tm_mon+1<<"/"<<nowlocal.tm_year+1900<<endl;
+        cout<<"\xB2\xB2\xB2 Time :"<<nowlocal.tm_hour<<":"<<nowlocal.tm_min<<":"<<nowlocal.tm_sec<<endl;
+        cout<<"\xB2\xB2\xB2 "<<endl;
     }
 
     void heure_Automatique(){
-        while (true){    hr=nowlocal.tm_hour;
-        min=nowlocal.tm_min;
-        sec=nowlocal.tm_sec;
+        while (true){
+            hr=nowlocal.tm_hour;
+            min=nowlocal.tm_min;
+            sec=nowlocal.tm_sec;
             break;
         }
 
     }
     bool heure_Manuelle(){
+        do {
         cout<<"entrer l'heure[h:m:s]";cin>>hr>>ms>>sec;
+        } while (!controle_heure());
         cout<<"l'heure est effectuer"<<endl;
         return true;
     }
 
+/*
 
-
-    date operator = (date date1){
-        date d;
-        d.jr=date1.jr;
-        d.ms=date1.ms;
-        d.an=date1.an;
-        d.hr=date1.hr;
-        d.min=date1.min;
-        d.sec=date1.sec;
-        return d;
+    date& operator = (date date1){
+        this->jr=date1.jr;
+        this->ms=date1.ms;
+        this->an=date1.an;
+        this->hr=date1.hr;
+        this->min=date1.min;
+        this->sec=date1.sec;
+        return *this;
     }
+    */
 };
 
 #endif
