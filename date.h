@@ -130,7 +130,7 @@ public:
         return true;
     }
 
-/*
+
 
     date& operator = (date date1){
         this->jr=date1.jr;
@@ -141,7 +141,7 @@ public:
         this->sec=date1.sec;
         return *this;
     }
-    */
+
 };
 
 #endif

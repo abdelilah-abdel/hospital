@@ -118,7 +118,9 @@ int main() {
             break;
         }
         case 5:
-            service1.Modier_nom_service();
+        {  std::cout << "entrer le nouveau nom de service" << '\n';
+            string  code ; cin>> code;
+            service1.Modier_nom_service(Tabservices,code);}
             break;
         case 6:
             service1.Modier_nom_service(service2);

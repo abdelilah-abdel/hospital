@@ -1,7 +1,6 @@
 //
 // Created by abdel on 1/11/2022.
 //
-
 #ifndef SERVICE_H_SSERVICE_H
 #define SERVICE_H_SSERVICE_H
 #include <string>
@@ -45,8 +44,8 @@ public:
         Med_chef = S.Med_chef;
         secretaire = S.secretaire;
         nbr_infermier = S.nbr_infermier;
-        for (int i = 0; i < cpt_Inf; i++) {
-            Tabinfermiers[i] = S.Tabinfermiers[i];
+        for (int i = 0; i <cpt_Inf ; i++) {
+            Tabinfermiers[i].copy_infirmier(S.Tabinfermiers[i]);
         }
         date_lancement_S = S.date_lancement_S;  // surcharge d'operateur sur date
         cout << "constructeur de copie est bien effectuer";
@@ -176,11 +175,18 @@ public:
     }
 
     //Modifier le nom de service courant
-    void Modier_nom_service() {
-        std::cout << "entrer le nouveau nom de service" << '\n';
-        std::cin >> nom_service;
-        std::cout << "le changement etait bien effectuer" << '\n' << "nouveau nom de service est :" << nom_service
-                  << std::endl;
+    void Modier_nom_service(service *Tabservice,string code) {
+        for(int i=0; i<nombre_service;i++)
+        {
+            if(Tabservice[i].code_service == code){
+                std::cin >> Tabservice[i].nom_service;
+                std::cout << "le changement etait bien effectuer" << '\n' << "nouveau nom de service est :" << Tabservice[i].nom_service
+                          << std::endl;
+            } else{
+                cout<<"le service de l'id : "<<code<<"n existe pas sur la liste des services ";
+                break;
+            }
+        }
     }
 
     //we suppose the service already existed
@@ -205,16 +211,12 @@ public:
         }
     }
 
-    bool modifier_nom_s() {
-        cout << "entrer le nouveau nom de service";
-        cin >> nom_service;
-        return true;
-    }
+
 
     void modifier_med_c() {
         Med_chef.saisir_Med();
     }
-/*
+
     service  operator=(service &S) {
         this->code_service = S.code_service;
         this->nom_service = S.nom_service;
@@ -225,6 +227,5 @@ public:
         this->Tabinfermiers = S.Tabinfermiers; // needs a surcharge or a methode
         return  *this;
     }
-    */
 };
 #endif //SERVICE_H_SSERVICE_H

@@ -76,11 +76,11 @@ public:
 
   //  friend ostream& operator << (ostream  &output , const Medcin &M);
 
-
+friend ostream& operator << (ostream &,Medcin &);
 };
 // la surcharge des operateurs:
-/*
-ostream& operator << (ostream  &output , const Medcin &M) {
+
+ostream& operator << (ostream  &output ,  Medcin &M) {
     output<<"MEDCIN Numero : " << cpt_Med<<endl;
     output<<"id :"<< M.id_Medcin << endl ;
     output<<"nom:"<<M.nom_Med << endl;
@@ -90,6 +90,6 @@ ostream& operator << (ostream  &output , const Medcin &M) {
     M.date_affectation_Med.Afficher_date();
     return  output;
 }
-*/
+
 
 #endif

@@ -34,7 +34,6 @@ public:
         type_contrat=" ";
         date_affectation_Inf.resetdate();
     };
-
     // constructeur par copie :
     infirmier(infirmier &I){
         id_infirmier=I.id_infirmier;
@@ -45,6 +44,17 @@ public:
         type_contrat= I.type_contrat;
         date_affectation_Inf=I.date_affectation_Inf; // not sure if it will work // should add overloading operator
         cout<<"the data is copied";
+    };
+    infirmier& copy_infirmier(infirmier &I){
+        id_infirmier=I.id_infirmier;
+        nom_infirmier=I.nom_infirmier;
+        prenom_infirmier=I.nom_infirmier;
+        adress_infirmier=I.id_infirmier;
+        salaire_infirmier=I.salaire_infirmier;
+        type_contrat= I.type_contrat;
+        date_affectation_Inf=I.date_affectation_Inf; // not sure if it will work // should add overloading operator
+        cout<<"the data is copied";
+        return *this ;
     };
  // afficher le
     void Afficher_infermier (){
@@ -79,12 +89,7 @@ public:
     }
     //les methodes get
     string getId_inf() { return  id_infirmier; }
-    string getNom_Inf(){ return  nom_infirmier;}
-    string getPrenom_Inf(){  return  prenom_infirmier;}
     date   getDA_Inf() { return  date_affectation_Inf;}
-    string getTypecontrat_Inf(){ return  type_contrat;}
-    double getSalaire_Inf(){ return salaire_infirmier; }
-    string getAdress_Inf(){return adress_infirmier;}
 
     // methode de comparaison :
          // comparer avec l'infermier courant
@@ -102,16 +107,19 @@ public:
 
     // we can add operator overloadings for menu and stuff like that ;
 
-/*
-    ostream& operator << (ostream  &output //,  infirmier &M ){
-        output<<"id :"<<id_infirmier;
-        output<<"nom :"<<nom_infirmier ;
-        output<<"prenom:"<<prenom_infirmier;
-        output<<"adress"<<adress_infirmier;
-        output<<"salaire_infirmier"<<salaire_infirmier;
-        output<<"type contrat :"<<type_contrat;
-        return  output;
-    }
-*/
+
+ friend ostream& operator<<(ostream&,infirmier&);
+
 };
+ostream& operator << (ostream &out,infirmier &M ){
+    out<<"id :"<<M.id_infirmier;
+    out<<"nom :"<<M.nom_infirmier ;
+    out<<"prenom:"<<M.prenom_infirmier;
+    out<<"adress"<<M.adress_infirmier;
+    out<<"salaire_infirmier"<<M.salaire_infirmier;
+    out<<"type contrat :"<<M.type_contrat;
+    return  out;
+}
+
+
 #endif
